@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body ng-app="loginUserApp" ng-controller="loginUserAppCtrlr">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"><img src="/images/depositphotos_70364593-stock-illustration-login-button-icon.jpg" alt=""></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">LOGIN PLEASE..!!</h1>
+                                    </div>
+                                    <form class="user" name="form">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="email" name="email" ng-model="user.email" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address..." required>
+                                            <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+                                                <p class="error-text pl-2" ng-message="required">This field is required.</p>
+                                                <p class="error-text pl-2" ng-message="email">Invalid email.</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                            id="password" name="password" ng-model="user.password" placeholder="Password" required>
+                                            <div ng-messages="form.password.$error" ng-if="form.password.$touched">
+                                                <p class="error-text pl-2" ng-message="required">This field is required.</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-user btn-block"  ng-click="loginUser()">
+                                            Login
+                                        </button>
+                                    </form>
+                                    <hr>
+                                    
+                                    <div class="text-center">
+                                        <a class="small" href="/auth/register">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <%-include ../partials/bodyScripts%>
+    <script src="/ngapps/loginUser.js"> </script>
+</body>
+
+</html>
